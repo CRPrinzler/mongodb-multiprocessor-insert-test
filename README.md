@@ -18,6 +18,10 @@ You need to install **halo**.
 
 ```pip3 install halo```
 
+## Read more and see it in action?
+
+Wait no more [Rinzler.dk](https://rinzler.dk/posts/insert-millions-of-documents-into-a-mongodb/)
+
 
 ## Caution
 **NO** ....do not use it in your production environment!
