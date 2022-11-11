@@ -56,7 +56,7 @@ myclient = pymongo.MongoClient("mongodb://"+str(mongohost)+":"+str(mongoport)+"/
 mydb = myclient[""+str(dbname)+""]
 mycol = mydb[""+str(mongocol)+""]
 
-spinner = Halo(text='Inserting random data into monogDB', spinner='dots')
+spinner = Halo(text='Inserting random data into mongoDB', spinner='dots')
 spinner.start()
 
 with Pool(processes=cpu) as pool:
