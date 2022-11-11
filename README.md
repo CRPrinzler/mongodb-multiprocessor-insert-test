@@ -19,4 +19,8 @@ You need to install **halo**.
 ```pip3 install halo```
 
 
+## Caution
+**NO** ....do not use it in your production environment!
+This is for lab work and testing ONLY!
+
 ## Enjoy
