@@ -27,6 +27,8 @@ N = int(strsize)
 print('Set the host for mongodb (ip):')
 mongohost = input()
 
+#ask for port database and collection
+
 # start time
 st = time.time()
 
