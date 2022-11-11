@@ -7,6 +7,7 @@ import multiprocessing
 from multiprocessing import Pool
 from halo import Halo
 
+# By Rinzler.dk
 
 os.system('clear')
 
@@ -61,7 +62,7 @@ spinner.start()
 with Pool(processes=cpu) as pool:
   	for i in pool.imap_unordered(f, range(num)):
 				name = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
-				mydict = { "name": ""+ str(name), "address": "test" }
+				mydict = { "name": ""+ str(name), "address": "XX"+ str(name)}
 				i = mycol.insert_one(mydict)
 
 spinner.stop()
