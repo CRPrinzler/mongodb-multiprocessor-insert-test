@@ -27,7 +27,18 @@ N = int(strsize)
 print('Set the host for mongodb (ip):')
 mongohost = input()
 
+# mongo port?
+print('Set the host for mongodb (default: 27017):')
+mongoport = input()
 #ask for port database and collection
+# mongo DB?
+print('Database name:')
+dbname = input()
+
+# mongo collection?
+print('Collection name:')
+mongocol = input()
+
 
 # start time
 st = time.time()
@@ -35,9 +46,9 @@ st = time.time()
 stcpu = time.process_time()
 
 # MonogDB connection
-myclient = pymongo.MongoClient("mongodb://"+str(mongohost)+":27017/")
-mydb = myclient["powertest"]
-mycol = mydb["logdata"]
+myclient = pymongo.MongoClient("mongodb://"+str(mongohost)+":"+str(mongoport)+"/")
+mydb = myclient[""+str(dbname)+""]
+mycol = mydb[""+str(mongocol)+""]
 
 spinner = Halo(text='Loading', spinner='dots')
 spinner.start()
