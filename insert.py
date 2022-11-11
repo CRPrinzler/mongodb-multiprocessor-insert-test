@@ -1,3 +1,4 @@
+import os
 import random
 import pymongo
 import string
@@ -5,6 +6,9 @@ import time
 import multiprocessing
 from multiprocessing import Pool
 from halo import Halo
+
+
+os.system('clear')
 
 print('You have ' + str(multiprocessing.cpu_count()) +' logical CPUs in your system.')
 cpu = multiprocessing.cpu_count()
@@ -38,6 +42,7 @@ dbname = input()
 # mongo collection?
 print('Collection name:')
 mongocol = input()
+os.system('clear')
 
 
 # start time
@@ -50,7 +55,7 @@ myclient = pymongo.MongoClient("mongodb://"+str(mongohost)+":"+str(mongoport)+"/
 mydb = myclient[""+str(dbname)+""]
 mycol = mydb[""+str(mongocol)+""]
 
-spinner = Halo(text='Loading', spinner='dots')
+spinner = Halo(text='Inserting random data into monogDB', spinner='dots')
 spinner.start()
 
 with Pool(processes=cpu) as pool:
@@ -70,6 +75,7 @@ elapsed_time = et - st
 res = etcpu -stcpu
 
 # Output results
+os.system('clear')
 
 if res < 61 :
 		print(num,' inserts have been processed')
