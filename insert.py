@@ -14,7 +14,14 @@ print('How many inserts?: ')
 numstr=input()
 num = int(numstr)
 
+# random string size
+print('Set the random string size (integer): ')
+strsize = input()
+N = int(strsize)
 
+# mongo host?
+print('Set the host for mongodb (ip):')
+mongohost = input()
 
 # start time
 st = time.time()
@@ -22,12 +29,11 @@ st = time.time()
 stcpu = time.process_time()
 
 # MonogDB connection
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+myclient = pymongo.MongoClient("mongodb://"+str(mongohost)+":27017/")
 mydb = myclient["powertest"]
 mycol = mydb["logdata"]
 
-# random string size
-N = 7
+
 
 with Pool(processes=12) as pool:
   	for i in pool.imap_unordered(f, range(num)):
