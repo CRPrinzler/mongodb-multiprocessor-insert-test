@@ -1,3 +1,6 @@
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/halo) || ![GitHub last commit](https://img.shields.io/github/last-commit/CRPrinzler/mongodb-multiprocessor-insert-test)
+
+
 # mongoDB Multiprocessor Insert Test
 
 ## But why?
