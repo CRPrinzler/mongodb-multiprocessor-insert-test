@@ -4,7 +4,11 @@ import string
 import time
 import multiprocessing
 from multiprocessing import Pool
+from halo import Halo
 
+print('You have ' + str(multiprocessing.cpu_count()) +' logical CPUs in your system.')
+cpu = multiprocessing.cpu_count()
+print('Lets use each of them...')
 # f function for imap() iteration
 def f(x):
   return x
@@ -33,14 +37,16 @@ myclient = pymongo.MongoClient("mongodb://"+str(mongohost)+":27017/")
 mydb = myclient["powertest"]
 mycol = mydb["logdata"]
 
+spinner = Halo(text='Loading', spinner='dots')
+spinner.start()
 
-
-with Pool(processes=12) as pool:
+with Pool(processes=cpu) as pool:
   	for i in pool.imap_unordered(f, range(num)):
 				name = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
 				mydict = { "name": ""+ str(name), "address": "test" }
 				i = mycol.insert_one(mydict)
 
+spinner.stop()
 
 # End time
 et = time.time()
